@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+
 function Home() {
     const users = useSelector(state => state.users);
     console.log(users);
@@ -8,7 +10,7 @@ function Home() {
     return (
         <div className='container'>
             <h2>CRUD APP WITH JSON SERVER</h2>
-            <Link to='/Adduser' className="btn btn-success my-3">Add User</Link>
+            <Link to='/Create' className="btn btn-success my-3">Add User</Link>
             <table className='table'>
                 <thead>
                     <tr>
@@ -26,7 +28,7 @@ function Home() {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>
-                                <button className='btn btn-sm btn-success'>Edit</button>
+                                <Link to={`/edit/${user.id}`} className='btn btn-sm btn-success'>Edit</Link>
                                 <button className='btn btn-sm btn-danger ms-2'>Delete</button>
                                 </td>
                         </tr>
